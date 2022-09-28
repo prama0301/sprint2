@@ -14,6 +14,8 @@ class CategoryViewController: UIViewController , UITableViewDelegate, UITableVie
     
 //creating a category arrray to save the fetch data
     var categoryArray : [String] = []
+ //   var productUrl: String = "https://dummyjson.com/products/category/"
+  //  var category: String = ""
     @IBOutlet weak var categoryTable: UITableView!
     
     override func viewDidLoad() {
@@ -57,7 +59,13 @@ jasonParsing()
    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-       categoryTable.deselectRow(at: indexPath, animated: true)
-       performSegue(withIdentifier: "Product", sender: self)
-       
-    }}
+      // categoryTable.deselectRow(at: indexPath, animated: true)
+        
+      // performSegue(withIdentifier: "Product", sender: self)
+        
+        let productVC = self.storyboard?.instantiateViewController(withIdentifier: "Product") as! ProductViewController
+        productVC.category = categoryArray[indexPath.row] 
+        self.navigationController?.pushViewController(productVC, animated: true)
+    }
+    
+}

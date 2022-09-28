@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
                                     self.saveCoreData()
                                     //thenn navigate to tab bar
                                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                    let mainTabBarController = storyboard.instantiateViewController(identifier: "MainTabBar")
+                                    let mainTabBarController = storyboard.instantiateViewController(identifier: "navigation")
                                     mainTabBarController.modalPresentationStyle = .fullScreen
                                     
                                     self.present(mainTabBarController, animated: true, completion: nil)                                  //  return true
