@@ -17,8 +17,7 @@ class CategoryViewController: UIViewController , UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.categoryTable.dequeueReusableCell(withIdentifier: "Category", for: indexPath) as! CategoryTableViewCell
-       //  cell.categoryLbl.text = item.T
-             
+       
          cell.categoryLabel.text = (categoryArray[indexPath.row] as AnyObject) as? String
          
          return cell
