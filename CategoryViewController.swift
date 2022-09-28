@@ -10,30 +10,7 @@ import Alamofire
 
 class CategoryViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
   
-  //table view delegate Methods
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        categoryArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.categoryTable.dequeueReusableCell(withIdentifier: "Category", for: indexPath) as! CategoryTableViewCell
-       
-         cell.categoryLabel.text = (categoryArray[indexPath.row] as AnyObject) as? String
-         
-         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        90.0
-    }
-   
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-       categoryTable.deselectRow(at: indexPath, animated: true)
-       performSegue(withIdentifier: "Product", sender: self)
-       
-        
-    }
+  
     
 //creating a category arrray to save the fetch data
     var categoryArray : [String] = []
@@ -61,4 +38,26 @@ jasonParsing()
         }
         
     }
-}
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        categoryArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.categoryTable.dequeueReusableCell(withIdentifier: "Category", for: indexPath) as! CategoryTableViewCell
+       
+         cell.categoryLabel.text = (categoryArray[indexPath.row] as AnyObject) as? String
+         
+         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        90.0
+    }
+   
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+       categoryTable.deselectRow(at: indexPath, animated: true)
+       performSegue(withIdentifier: "Product", sender: self)
+       
+    }}
